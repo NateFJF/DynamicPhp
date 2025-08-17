@@ -21,7 +21,7 @@ $twig->addGlobal('site', [
 function get_greeting(string $tz = 'Europe/Malta'): string {
     $dt = new DateTime('now', new DateTimeZone($tz));
     $h = (int)$dt->format('G');
-    if ($h < 12) return 'Good Morning!';
-    if ($h < 18) return 'Good Afternoon!';
-    return 'Good Evening!';
+    if ($h < 12) return 'Good Morning';
+    if ($h < 18) return 'Good Afternoon';
+    return 'Good Evening';
 }
