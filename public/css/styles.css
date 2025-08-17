@@ -93,4 +93,19 @@ input, select, textarea, button {
   border: 1px solid #b7ebc6;
   padding: 0.5rem; }
 
+.team {
+  list-style: none;
+  padding: 0; }
+  .team .member {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem; }
+    .team .member img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 8px; }
+    .team .member h3 {
+      margin: 0 0 0.25rem; }
+
 /*# sourceMappingURL=styles.css.map */

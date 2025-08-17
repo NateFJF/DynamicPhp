@@ -4,18 +4,20 @@ session_start();
 
 // Composer autoload
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/utils.php';
 
 // Twig loader & env
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '/../templates');
 $twig = new \Twig\Environment($loader, [
-    'cache' => false, // Set to true for production
+    'cache' => false,
     'autoescape' => 'html',
 ]);
 
-// Global variables (fonts/colors handled in CSS)
-$twig->addGlobal('site', [
-    'name' => 'Moplin Ltd',
-]);
+// register the PHP function for Twig
+$twig->addFunction(new \Twig\TwigFunction('category_name', 'category_name'));
+
+// price filter (WIP)
+$twig->addFilter(new \Twig\TwigFilter('price', fn($n) => '€' . number_format($n, 2, '.', ',')));
 
 // Helper for timezone-aware greeting
 function get_greeting(string $tz = 'Europe/Malta'): string {
