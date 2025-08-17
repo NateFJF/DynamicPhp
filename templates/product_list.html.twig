@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <h1>Products</h1>
+  <p>Filter by category:
+    {% for code, name in categories %}
+      <a href="/product_list.php?category={{ code }}">{{ name }}</a>{% if not loop.last %} | {% endif %}
+    {% endfor %}
+    <a href="/product_list.php">All</a>
+  </p>
+
+  <div class="grid">
+    {% for p in products %}
+      <article class="card">
+        <a href="/product_details.php?code={{ p.code }}">
+          <img class="thumb" src="/images/{{ p.image }}" alt="{{ p.name }}" />
+        </a>
+        <h3><a href="/product_details.php?code={{ p.code }}">{{ p.name }}</a></h3>
+        <p class="muted"><a href="/product_list.php?category={{ p.category }}">{{ category_name(p.category) }}</a></p>
+        <p>€{{ p.price|number_format(2, '.', ',') }}</p>
+      </article>
+    {% else %}
+      <p>No products found.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

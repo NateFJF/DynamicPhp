@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <h1>Good {{ time_of_day }}! Welcome to Moplin’s website</h1>
+  <p>
+    Moplin Ltd is a local electronics shop offering phones, laptops and accessories.
+    <img src="/images/hero.jpg" alt="Moplin store" />
+  </p>
+  <h2>What we stock</h2>
+  <ul>
+    {% for code, name in categories %}
+      <li>{{ name }}</li>
+    {% endfor %}
+  </ul>
+  <h3>Our culture</h3>
+  <p>Friendly service, fair pricing, and reliable after-sales support.</p>
+{% endblock %}

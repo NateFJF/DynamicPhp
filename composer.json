@@ -1,6 +1,13 @@
 {
-    "require": {
-        "twig/twig": "^3.21",
-        "phpmailer/phpmailer": "^6.10"
+  "name": "moplin/shop",
+  "description": "CIS1054 Moplin dynamic PHP site",
+  "require": {
+    "twig/twig": "^3.21",
+    "phpmailer/phpmailer": "^6.10"
+  },
+  "autoload": {
+    "psr-4": {
+      "": "includes/"
     }
+  }
 }

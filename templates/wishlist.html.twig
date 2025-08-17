@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <a href="javascript:history.back()">&larr; Go back</a>
+  <h1>Your Wishlist</h1>
+  {% if items is empty %}
+    <p>Wishlist is empty.</p>
+  {% else %}
+    <ul class="wishlist">
+      {% for p in items %}
+        <li>
+          <strong>{{ p.name }}</strong> — €{{ p.price|number_format(2, '.', ',') }}
+          <div class="muted">{{ p.description }}</div>
+          <form method="post" action="/wishlist.php" style="display:inline">
+            <input type="hidden" name="action" value="remove">
+            <input type="hidden" name="code" value="{{ p.code }}">
+            <button type="submit">Remove from Wishlist</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <h1>Contact Us</h1>
+  <address>
+    <p>Address: 123 Republic St, Valletta</p>
+    <p>Phone: +356 1234 5678</p>
+    <ul>
+      <li>Mon–Fri: 09:00–18:00</li>
+      <li>Sat: 10:00–14:00</li>
+      <li>Sun: Closed</li>
+    </ul>
+  </address>
+
+  {% if flash is defined %}
+    <p class="flash">{{ flash }}</p>
+  {% endif %}
+
+  <form method="post" action="/contact.php">
+    <label>Name <input type="text" name="name" required></label>
+    <label>Email <input type="email" name="email" required></label>
+    <label>Type
+      <select name="type" required>
+        <option value="general feedback">general feedback</option>
+        <option value="complaint">complaint</option>
+      </select>
+    </label>
+    <label>Message
+      <textarea name="message" rows="6" required></textarea>
+    </label>
+    <button type="submit">Send</button>
+  </form>
+{% endblock %}

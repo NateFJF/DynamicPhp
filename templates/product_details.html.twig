@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block content %}
+  <a href="javascript:history.back()">&larr; Go back</a>
+  <div class="details">
+    <img class="full" src="/images/{{ product.image }}" alt="{{ product.name }}" />
+    <div>
+      <h1>{{ product.name }}</h1>
+      <h2>€{{ product.price|number_format(2, '.', ',') }}</h2>
+      <p class="muted">Category: {{ category_name(product.category) }}</p>
+      <p>{{ product.description }}</p>
+      <form method="post" action="/wishlist.php">
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="code" value="{{ product.code }}">
+        <button type="submit">Add to Wishlist</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}
