@@ -1,0 +1,96 @@
+@import 'style-variables';
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  margin: 0.5em 0;
+}
+
+h1 { font-size: 3em; color: $color-h1; }
+h2 { font-size: 2.5em; color: $color-h2; }
+h3 { font-size: 2em; }
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.topbar {
+  background: $color-nav-bg;
+  color: $color-nav-text;
+
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0.75rem 1rem;
+  }
+
+  a {
+    color: $color-nav-text;
+    text-decoration: none;
+  }
+}
+
+.footer {
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid $color-footer-border;
+}
+
+p img {
+  float: right;
+  max-width: 280px;
+  margin: 0 0 1rem 1rem;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid $color-footer-border;
+  padding: 0.75rem;
+  flex: 1 1 calc(33% - 1rem);
+  box-sizing: border-box;
+}
+
+.thumb { width: 100%; height: auto; display: block; }
+
+.details {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+
+  .full { width: 40%; height: auto; }
+}
+
+.muted { color: $color-muted; }
+
+.wishlist {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid $color-footer-border;
+  }
+}
+
+form label { display: block; margin: 0.5rem 0; }
+input, select, textarea, button { font: inherit; padding: 0.5rem; }
+
+.flash {
+  background: $color-flash-bg;
+  border: 1px solid $color-flash-border;
+  padding: 0.5rem;
+}
